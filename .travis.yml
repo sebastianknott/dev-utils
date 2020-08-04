@@ -1,0 +1,41 @@
+# see http://about.travis-ci.org/docs/user/languages/php/ for more hints
+language: php
+
+# list any PHP version you want to test against
+php:
+  - 7.2
+  - 7.3
+  - 7.4
+  - nightly
+
+# optionally set up exclutions and allowed failures in the matrix
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+
+install:
+  - travis_retry composer config -g github-oauth.github.com $GH_TOKEN
+  - travis_retry composer install
+
+script:
+  - vendor/bin/parallel-lint -e php --exclude vendor .
+  - vendor/bin/phpcs --standard=SebastianKnott src test
+  - vendor/bin/phpmd src,test text ./config/phpmd/phpmd.xml
+  - vendor/bin/phpcpd src
+  - vendor/bin/phpunit
+
+# allow builds for all branches
+branches:
+  only:
+    - /.*/
+
+# disable shallow cloning
+git:
+  depth: false
+
+## Cache composer bits
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/.npm
