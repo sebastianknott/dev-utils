@@ -26,9 +26,9 @@ class DevToolsTestCase extends TestCase
         self::$faker = Factory::create('de_DE');
         self::$faker->seed(9876543255);
 
-        require_once ComposerLocator::getPath('hamcrest/hamcrest-php') . '/hamcrest/Hamcrest.php';
-        require_once ComposerLocator::getPath('sebastianknott/hamcrest-object-accessor') . '/src/functions.php';
-        require_once ComposerLocator::getPath('mockery/mockery') . '/library/helpers.php';
+        include_once ComposerLocator::getPath('hamcrest/hamcrest-php') . '/hamcrest/Hamcrest.php';
+        include_once ComposerLocator::getPath('sebastianknott/hamcrest-object-accessor') . '/src/functions.php';
+        include_once ComposerLocator::getPath('mockery/mockery') . '/library/helpers.php';
     }
 
     protected function tearDown(): void

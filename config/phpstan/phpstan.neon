@@ -1,0 +1,12 @@
+parameters:
+    level: 5
+    parallel:
+        maximumNumberOfProcesses: 4
+    fileExtensions:
+        - php
+    scanFiles:
+        - ../../vendor/mockery/mockery/library/helpers.php
+        - ../../vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php
+        - ../../vendor/sebastianknott/hamcrest-object-accessor/src/functions.php
+    ignoreErrors:
+        - '#Function [a-zA-Z0-9\\_]+ invoked with [0-9]+ parameter[s]?, [0-9]+ required#'

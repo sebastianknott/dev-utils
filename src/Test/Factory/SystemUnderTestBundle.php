@@ -17,7 +17,7 @@ class SystemUnderTestBundle extends ArrayObject
         $this->subject = $subject;
     }
 
-    public function getSubject()
+    public function getSubject(): object
     {
         return $this->subject;
     }

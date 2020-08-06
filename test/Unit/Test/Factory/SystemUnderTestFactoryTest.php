@@ -5,17 +5,14 @@ declare(strict_types=1);
 namespace SebastianKnott\DevUtils\Test\Unit\Test\Factory;
 
 use Hamcrest\Matcher;
-use Hamcrest\MatcherAssert;
-use Hamcrest\Matchers as M;
 use Mockery\MockInterface;
 use Phake_IMock;
-use PHPUnit\Framework\TestCase;
 use SebastianKnott\DevUtils\Test\Factory\SystemUnderTestFactory;
 use SebastianKnott\DevUtils\Test\Fixture\Test\Factory\SystemUnderTestFactory\ClassWithDependencies;
 use SebastianKnott\DevUtils\Test\Fixture\Test\Factory\SystemUnderTestFactory\SimpleClass;
-use SebastianKnott\HamcrestObjectAccessor\HasProperty as HP;
+use SebastianKnott\DevUtils\Test\Infrastructure\DevToolsTestCase;
 
-class SystemUnderTestFactoryTest extends TestCase
+class SystemUnderTestFactoryTest extends DevToolsTestCase
 {
     /** @var SystemUnderTestFactory */
     private $subject;
@@ -57,14 +54,14 @@ class SystemUnderTestFactoryTest extends TestCase
         $methodName = 'buildSutWith' . $methodNamePart;
         $result     = $this->subject->$methodName(ClassWithDependencies::class);
 
-        MatcherAssert::assertThat(
+        assertThat(
             $result,
-            M::allOf(
-                HP::hasProperty(
+            allOf(
+                hasProperty(
                     'subject',
-                    M::allOf(
-                        M::anInstanceOf(ClassWithDependencies::class),
-                        HP::hasProperty(
+                    allOf(
+                        anInstanceOf(ClassWithDependencies::class),
+                        hasProperty(
                             'simpleClass',
                             $this->isSimpleClassMock($mockClass)
                         )
@@ -72,7 +69,7 @@ class SystemUnderTestFactoryTest extends TestCase
                 )
             )
         );
-        MatcherAssert::assertThat(
+        assertThat(
             $result['simpleClassParameterName'],
             $this->isSimpleClassMock($mockClass)
         );
@@ -83,13 +80,13 @@ class SystemUnderTestFactoryTest extends TestCase
      *
      * @param string $mockClass
      *
-     * @return mixed
+     * @return Matcher
      */
     private function isSimpleClassMock(string $mockClass): Matcher
     {
-        return M::allOf(
-            M::anInstanceOf(SimpleClass::class),
-            M::anInstanceOf($mockClass)
+        return allOf(
+            anInstanceOf(SimpleClass::class),
+            anInstanceOf($mockClass)
         );
     }
 }

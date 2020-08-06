@@ -14,13 +14,13 @@ class SystemUnderTestFactory
     /**
      * Builds a subject with mocked constructor dependencies with Mockery.
      *
-     * @param $className
+     * @param string $className
      *
      * @return object
      */
-    public function buildSutWithMockery($className): object
+    public function buildSutWithMockery(string $className): object
     {
-        $buildFunction = static function ($className) {
+        $buildFunction = static function ($className): object {
             return Mockery::mock($className);
         };
 
@@ -30,13 +30,13 @@ class SystemUnderTestFactory
     /**
      * Builds a subject with mocked constructor dependencies with Mockery.
      *
-     * @param $className
+     * @param string $className
      *
      * @return object
      */
-    public function buildSutWithPhake($className): object
+    public function buildSutWithPhake(string $className): object
     {
-        $buildFunction = static function ($className) {
+        $buildFunction = static function ($className): object {
             return Phake::mock($className);
         };
 

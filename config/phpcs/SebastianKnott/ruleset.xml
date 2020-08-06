@@ -5,6 +5,8 @@
     </description>
 
     <!-- Referenced Rulesets -->
+    <rule ref="PSR1"/>
+    <!-- Referenced Rulesets -->
     <rule ref="PSR2"/>
     <!-- Referenced Rulesets -->
     <rule ref="PSR12"/>
@@ -238,6 +240,10 @@
     <rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
     <rule ref="Squiz.Functions.GlobalFunction"/>
     <rule ref="Squiz.Functions.LowercaseFunctionKeywords"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore">
+        <severity>0</severity>
+    </rule>
     <rule ref="Squiz.Objects.DisallowObjectStringIndex"/>
     <rule ref="Squiz.Objects.ObjectMemberComma"/>
     <rule ref="Squiz.Operators.IncrementDecrementUsage"/>
