@@ -22,3 +22,6 @@ task(
 
 desc('Run all checks');
 task('check', ['security-checker', 'sca', 'test']);
+
+desc('Runs checks usable by CI');
+task('ci', ['sca', 'test']);

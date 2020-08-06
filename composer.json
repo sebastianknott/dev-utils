@@ -41,7 +41,7 @@
         "sebastianknott/hamcrest-object-accessor": "^1.0",
         "slevomat/coding-standard": "^6.3.2",
         "squizlabs/php_codesniffer": "^3.5",
-        "vimeo/psalm": "^3.12"
+        "vimeo/psalm": "^3.13"
     },
     "require-dev": {
         "roave/security-advisories": "@dev",
@@ -60,6 +60,7 @@
     },
     "scripts": {
         "check": "vendor/bin/dep check",
+        "ci": "vendor/bin/dep ci",
         "sca" : "vendor/bin/dep sca",
         "fix" : "vendor/bin/dep sca:phpcs:fix",
         "test": "vendor/bin/dep test"
