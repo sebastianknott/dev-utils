@@ -2,6 +2,7 @@
     "name": "sebastianknott/dev-utils",
     "description": "This is a collection of stuff I need for developing.",
     "type": "library",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "Sebastian Knott",
