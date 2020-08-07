@@ -12,7 +12,7 @@ desc('Check for syntax errors');
 task(
     'sca:lint',
     static function () {
-        run('vendor/bin/parallel-lint -e php --blame --exclude vendor .');
+        run('vendor/bin/parallel-lint --no-progress -e php --blame --exclude vendor .');
     }
 );
 
@@ -65,7 +65,7 @@ task(
     static function () {
         $path = getComposerPackagePath('sebastianknott/dev-utils');
         run(
-            'vendor/bin/phpstan analyse --configuration=' . $path . '/config/phpstan/phpstan.neon src test'
+            'vendor/bin/phpstan analyse --no-progress --configuration=' . $path . '/config/phpstan/phpstan.neon src test'
         );
     }
 );
@@ -75,7 +75,7 @@ task(
     'sca:psalm',
     static function () {
         $path = getComposerPackagePath('sebastianknott/dev-utils');
-        run('vendor/bin/psalm -c ' . $path . '/config/psalm/psalm.xml ');
+        run('vendor/bin/psalm --no-progress -c ' . $path . '/config/psalm/psalm.xml ');
     }
 );
 
