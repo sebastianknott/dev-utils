@@ -6,6 +6,8 @@ namespace Deployer;
 
 // Static Code Analysis
 
+require_once __DIR__ . '/functions.php';
+
 desc('Check for syntax errors');
 task(
     'sca:lint',
@@ -18,8 +20,9 @@ desc('Check for messy code');
 task(
     'sca:phpmd',
     static function () {
-        run('vendor/bin/phpmd src text ./config/phpmd/phpmd.xml');
-        run('vendor/bin/phpmd test text ./config/phpmd/phpmd.xml');
+        $path = getComposerPackagePath('sebastianknott/dev-utils');
+        run('vendor/bin/phpmd src text ' . $path . '/config/phpmd/phpmd.xml');
+        run('vendor/bin/phpmd test text ' . $path . '/config/phpmd/phpmd.xml');
     }
 );
 
@@ -60,7 +63,10 @@ desc('Check for messy code with phpstan');
 task(
     'sca:phpstan',
     static function () {
-        run('vendor/bin/phpstan analyse --configuration=config/phpstan/phpstan.neon src test');
+        $path = getComposerPackagePath('sebastianknott/dev-utils');
+        run(
+            'vendor/bin/phpstan analyse --configuration=' . $path . '/config/phpstan/phpstan.neon src test'
+        );
     }
 );
 
@@ -68,7 +74,8 @@ desc('Check for messy code with vimeos psalm');
 task(
     'sca:psalm',
     static function () {
-        run('vendor/bin/psalm -c config/psalm/psalm.xml ');
+        $path = getComposerPackagePath('sebastianknott/dev-utils');
+        run('vendor/bin/psalm -c ' . $path . '/config/psalm/psalm.xml ');
     }
 );
 

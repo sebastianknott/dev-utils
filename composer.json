@@ -62,7 +62,7 @@
     },
     "scripts": {
         "check": "vendor/bin/dep check",
-        "ci": "vendor/bin/dep ci",
+        "ci": "vendor/bin/dep ci -vvv",
         "sca" : "vendor/bin/dep sca",
         "fix" : "vendor/bin/dep sca:phpcs:fix",
         "test": "vendor/bin/dep test"
