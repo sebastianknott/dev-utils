@@ -38,7 +38,7 @@ desc('Check for code style');
 task(
     'sca:phpcs',
     static function () {
-        run('vendor/bin/phpcs --parallel=4 --standard=SebastianKnott src test');
+        run('vendor/bin/phpcs --parallel=4 -s --standard=SebastianKnott src test');
     }
 );
 

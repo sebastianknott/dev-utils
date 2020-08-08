@@ -39,7 +39,7 @@
         "psalm/plugin-phpunit": "^0.10.1",
         "rregeer/phpunit-coverage-check": "^0.3.1",
         "sebastian/phpcpd": "^4.0 || ^5.0",
-        "sebastianknott/coding-standard": "^0.2",
+        "sebastianknott/coding-standard": "^0.3",
         "sebastianknott/hamcrest-object-accessor": "@dev",
         "slevomat/coding-standard": "^6.3.2",
         "squizlabs/php_codesniffer": "^3.5",
