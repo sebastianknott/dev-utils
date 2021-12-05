@@ -3,10 +3,8 @@ language: php
 
 # list any PHP version you want to test against
 php:
-  - 7.2
-  - 7.3
   - 7.4
-  - nightly
+  - 8.1
 
 env:
   matrix:
@@ -17,7 +15,7 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-    - php: nightly
+    - php: 8.1
 
 before_install:
   - travis_retry pecl install ast
