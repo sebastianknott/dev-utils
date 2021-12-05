@@ -75,7 +75,7 @@ class SystemUnderTestFactory
 
         return new SystemUnderTestBundle(
             $systemUnderTestSubject,
-            $parametersInstancesWithName ?? []
+            $parametersInstancesWithName
         );
     }
 }
