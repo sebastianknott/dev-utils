@@ -14,9 +14,7 @@ class SystemUnderTestFactory
     /**
      * Builds a subject with mocked constructor dependencies with Mockery.
      *
-     * @param string $className
      *
-     * @return object
      */
     public function buildSutWithMockery(string $className): object
     {
@@ -30,9 +28,7 @@ class SystemUnderTestFactory
     /**
      * Builds a subject with mocked constructor dependencies with Mockery.
      *
-     * @param string $className
      *
-     * @return object
      */
     public function buildSutWithPhake(string $className): object
     {
@@ -46,10 +42,7 @@ class SystemUnderTestFactory
     /**
      * Generates instance of class. Uses buildFunction to generate constructor parameters.
      *
-     * @param string  $className
-     * @param Closure $buildFunction
      *
-     * @return SystemUnderTestBundle
      */
     private function generateSubjectByBuildFunction(string $className, Closure $buildFunction): SystemUnderTestBundle
     {

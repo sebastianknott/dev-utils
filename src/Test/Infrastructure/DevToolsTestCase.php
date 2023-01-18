@@ -16,16 +16,14 @@ class DevToolsTestCase extends TestCase
     /**
      * A ready made faker instance for your unit tests.
      *
-     * @var Generator
      */
-    public static $faker;
+    public static Generator $faker;
 
     /**
      * An instance of my subject factory for easy sut creation and mocking.
      *
-     * @var SystemUnderTestFactory
      */
-    public static $factory;
+    public static SystemUnderTestFactory $factory;
 
     /**
      * This method will instantiate the factory and faker. Father more the global functions of hamcrest and mockery

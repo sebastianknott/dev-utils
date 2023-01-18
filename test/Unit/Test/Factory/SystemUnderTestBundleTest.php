@@ -11,17 +11,13 @@ use stdClass;
 
 class SystemUnderTestBundleTest extends DevToolsTestCase
 {
-    /** @var MockInterface|stdClass */
-    private $mockedSubjectUnderTest;
+    private MockInterface|stdClass $mockedSubjectUnderTest;
 
-    /** @var SystemUnderTestBundle */
-    private $subject;
+    private SystemUnderTestBundle $subject;
 
-    /** @var MockInterface|stdClass */
-    private $mockedParameter1;
+    private MockInterface|stdClass $mockedParameter1;
 
-    /** @var MockInterface|stdClass */
-    private $mockedParameter2;
+    private MockInterface|stdClass $mockedParameter2;
 
     public function setUp(): void
     {
@@ -39,7 +35,7 @@ class SystemUnderTestBundleTest extends DevToolsTestCase
     public function testConstructionOfObject(): void
     {
         $subject   = new stdClass();
-        $parameter = self::$faker->word;
+        $parameter = mock();
         new SystemUnderTestBundle($subject, ['name' => $parameter]);
     }
 

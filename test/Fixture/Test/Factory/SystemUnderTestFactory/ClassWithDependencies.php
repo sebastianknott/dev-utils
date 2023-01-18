@@ -6,22 +6,17 @@ namespace SebastianKnott\DevUtils\Test\Fixture\Test\Factory\SystemUnderTestFacto
 
 class ClassWithDependencies
 {
-    /** @var SimpleClass */
-    private $simpleClass;
+    private SimpleClass $simpleClass;
 
     /**
      * ClassWithDependencies constructor.
      *
-     * @param SimpleClass $simpleClassParameterName
      */
     public function __construct(SimpleClass $simpleClassParameterName)
     {
         $this->simpleClass = $simpleClassParameterName;
     }
 
-    /**
-     * @return SimpleClass
-     */
     public function getSimpleClass(): SimpleClass
     {
         return $this->simpleClass;

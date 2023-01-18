@@ -5,16 +5,19 @@ declare(strict_types=1);
 namespace SebastianKnott\DevUtils\Test\Factory;
 
 use ArrayObject;
+use Mockery\MockInterface;
 
+/**
+ * @psalm-suppress MissingTemplateParam
+ */
 class SystemUnderTestBundle extends ArrayObject
 {
-    /** @var object */
-    private $subject;
-
-    public function __construct(object $subject, array $parameters)
+    /**
+     * @param array<string,MockInterface>  $parameters
+     */
+    public function __construct(private readonly object $subject, array $parameters)
     {
         parent::__construct($parameters);
-        $this->subject = $subject;
     }
 
     public function getSubject(): object

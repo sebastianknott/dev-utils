@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-        executionOrder="random"
-        resolveDependencies="true"
-        beStrictAboutTestsThatDoNotTestAnything="false"
-        colors="true"
-        bootstrap="vendor/autoload.php">
-    <testsuites>
-        <testsuite name="AllUnitTests">
-            <directory>./test/Unit/</directory>
-            <directory>./test/Functional/</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src</directory>
-            <exclude>
-                <file>src/Test/Infrastructure/DevToolsTestCase.php</file>
-                <file>src/Test/libraryFunctions.php</file>
-            </exclude>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-text" target="php://stdout"/>
-        <log type="coverage-xml" target="./tmp/phpunit/coverage-xml"/>
-        <log type="coverage-clover" target="./tmp/phpunit/clover.xml"/>
-        <log type="junit" target="./tmp/phpunit/junit.xml"/>
-    </logging>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         executionOrder="random"
+         resolveDependencies="true"
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         colors="true"
+         bootstrap="vendor/autoload.php"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage
+          processUncoveredFiles="true"
+          cacheDirectory="tmp/phpunit/coverage-cache">
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+    <exclude>
+      <file>src/Test/Infrastructure/DevToolsTestCase.php</file>
+      <file>src/Test/libraryFunctions.php</file>
+    </exclude>
+    <report>
+      <clover outputFile="./tmp/phpunit/clover.xml"/>
+      <text outputFile="php://stdout"/>
+      <xml outputDirectory="./tmp/phpunit/coverage-xml"/>
+    </report>
+  </coverage>
+  <testsuites>
+    <testsuite name="AllUnitTests">
+      <directory>./test/Unit/</directory>
+    </testsuite>
+  </testsuites>
+  <logging>
+    <junit outputFile="./tmp/phpunit/junit.xml"/>
+  </logging>
 </phpunit>

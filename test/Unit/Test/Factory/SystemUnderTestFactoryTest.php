@@ -14,8 +14,7 @@ use SebastianKnott\DevUtils\Test\Infrastructure\DevToolsTestCase;
 
 class SystemUnderTestFactoryTest extends DevToolsTestCase
 {
-    /** @var SystemUnderTestFactory */
-    private $subject;
+    private SystemUnderTestFactory $subject;
 
     public function setUp(): void
     {
@@ -29,6 +28,9 @@ class SystemUnderTestFactoryTest extends DevToolsTestCase
         self::assertInstanceOf(SimpleClass::class, $result->getSubject());
     }
 
+    /**
+     * @return array<string,array<string,string>>
+     */
     public function testBuildSutWithMockeryClassWitDepsDataProvider(): array
     {
         return [
@@ -46,8 +48,6 @@ class SystemUnderTestFactoryTest extends DevToolsTestCase
     /**
      * @dataProvider testBuildSutWithMockeryClassWitDepsDataProvider
      *
-     * @param string $methodNamePart
-     * @param string $mockClass
      */
     public function testBuildSutWithMockeryClassWitDeps(string $methodNamePart, string $mockClass): void
     {
@@ -78,9 +78,7 @@ class SystemUnderTestFactoryTest extends DevToolsTestCase
     /**
      * Returns Matcher to check if something is a SimpleClass and of type mockClass.
      *
-     * @param string $mockClass
      *
-     * @return Matcher
      */
     private function isSimpleClassMock(string $mockClass): Matcher
     {
